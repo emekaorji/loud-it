@@ -92,19 +92,25 @@ blockquote h2::before {
   content: counter(section) '. ';
 }
 pre {
+  background-color: #44b3;
   overflow: hidden;
   border-radius: .4em;
+  padding-inline-start: .7em;
   margin-block: 1em;
 }
 code {
-  background-color: #44b3;
+  width: calc(100% - 30px);
   display: block;
-  padding-inline-start: .7em;
   padding-block: .7em;
   overflow: hidden;
   user-select: all;
+  overflow-x: scroll;
+}
+code::-webkit-scrollbar {
+  display: none;
 }
 p code {
+  background-color: #44b3;
   display: inline;
   padding: .3em;
   border-radius: .4em;
