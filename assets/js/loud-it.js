@@ -1,4 +1,4 @@
-window.Ding = function Ding(
+window.LoudIt = function LoudIt(
 	message,
 	{
 		element = 'body',
@@ -70,4 +70,4 @@ window.Ding = function Ding(
 	}, duration + 10);
 };
 
-export default Ding;
+export default LoudIt;

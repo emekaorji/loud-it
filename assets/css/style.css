@@ -41,7 +41,7 @@ header h1 span {
 }
 header .buttons {
   display: flex;
-  gap: .2em;
+  gap: .3em;
 }
 header #githubIcon {
   width: 2em;
