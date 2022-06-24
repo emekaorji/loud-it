@@ -37,6 +37,7 @@ header h1 span {
   color: #0007;
   font-size: .7em;
   font-weight: lighter;
+  vertical-align: middle;
 }
 header .buttons {
   display: flex;
