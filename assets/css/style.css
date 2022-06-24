@@ -37,7 +37,7 @@ h1 {
 }
 header h1 span {
   color: #0007;
-  font-size: .7em;
+  font-size: .6em;
   font-weight: lighter;
   vertical-align: middle;
 }
@@ -111,6 +111,11 @@ code {
 }
 code::-webkit-scrollbar {
   display: none;
+}
+code .comment {
+  color: #0007;
+  font-weight: 300;
+  font-style: italic;
 }
 *:not(pre) > code {
   width: fit-content;

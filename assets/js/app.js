@@ -1,4 +1,6 @@
-// import LoudIt from './loud-it.js';
+// import LoudIt from './loud-it.js'; OR
+// import LoudIt from './loud-it.min.js'; OR
+// import LoudIt from 'https://cdn.jsdelivr.net/gh/EmekaOrji/loud-it@master/assets/js/loud-it.js'; OR
 // import LoudIt from 'https://cdn.jsdelivr.net/gh/EmekaOrji/loud-it@master/assets/js/loud-it.min.js';
 
 const scrollButton = document.getElementById('scrollToPlayground');
