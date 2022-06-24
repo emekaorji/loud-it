@@ -12,12 +12,13 @@ body {
   font-family: 'Poppins', sans-serif;
   /* letter-spacing: -.4px; */
 }
-.announcement {
+#announcement {
+  height: 6vh;
   background-color: #44b3;
+  font-size: 1.2em;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: .3em;
 }
 header {
   min-height: 20vh;
@@ -29,9 +30,10 @@ header {
   /* border: 2px solid red; */
 }
 h1 {
-  font-size: 3.2em;
+  font-size: min(3.2em, 11vw);
   text-align: center;
-  padding-block: .2em;
+  padding-block-start: min(.7em, 12vw);
+  padding-block-end: .2em;
 }
 header h1 span {
   color: #0007;
@@ -94,6 +96,7 @@ blockquote h2::before {
 pre {
   background-color: #44b3;
   overflow: hidden;
+  border: 1px solid #44b0;
   border-radius: .4em;
   padding-inline-start: .7em;
   margin-block: 1em;
@@ -109,7 +112,8 @@ code {
 code::-webkit-scrollbar {
   display: none;
 }
-p code {
+*:not(pre) > code {
+  width: fit-content;
   background-color: #44b3;
   display: inline;
   padding: .3em;

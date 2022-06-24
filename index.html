@@ -10,10 +10,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css">
 
-  <!-- <script src="./assets/js/loud-it.js" type="module"></script> -->
+  <script src="./assets/js/loud-it.js" type="module"></script>
 </head>
 <body>
-  <div class="announcement">🚀Recently released!</div>
+  <div id="announcement">🚀Recently released!</div>
   <header>
     <h1>Loud-it<span>(Vanilla JS)</span></h1>
     <div class="buttons">
@@ -29,7 +29,44 @@
   <main class='container'>
 
     <section class="usage">
-      <h2>Usage</h2>
+      <h2>Initialization</h2>
+      
+      <blockquote class='case case1'>
+        <h2>Script Tag</h2>
+        <div class="case__description">
+          <p>The simplest way around this is simply adding a script tag in your html <code>&lt;head&gt;</code> tag</p>
+          <p>Like this:</p>
+          <pre><code>&lt;script src="https://cdn.jsdelivr.net/gh/EmekaOrji/loud-it@master/assets/js/loud-it.js"&gt;&lt;/script&gt;</code></pre>
+          <p>Or if you have downloaded it locally</p>
+          <pre><code>&lt;script src=""&gt;&lt;/script&gt;</code></pre>
+        </div>
+      </blockquote>
+      
+      <blockquote class='case case2'>
+        <h2>Import Declaration</h2>
+        <div class="case__description">
+          <p>Use an import in your js file</p>
+          <p>Like this:</p>
+          <pre><code>import Ding from ""</code></pre>
+          <p>Or if you have downloaded it locally</p>
+          <pre><code>import Ding from ""</code></pre>
+        </div>
+      </blockquote>
+
+      <blockquote class='case case3'>
+        <h2>Clone the repo</h2>
+        <div class="case__description">
+          <p>Clone this repo from github and start building your project inside it</p>
+          <pre><code>git clone https://github.com/EmekaOrji/loud-it.git</code></pre>
+          <p>then</p>
+          <pre><code>cd Ding</code></pre>
+          <p>Now, you can go on working on your project</p>
+        </div>
+      </blockquote>
+    </section>
+
+    <section class="options">
+      <h2>Options</h2>
       
       <blockquote class='case case1'>
         <h2>Script Tag</h2>
