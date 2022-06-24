@@ -1,0 +1,149 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 300ms ease;
+  scroll-behavior: smooth;
+}
+*::selection {
+  background-color: #44b9;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  /* letter-spacing: -.4px; */
+}
+.announcement {
+  background-color: #44b3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .3em;
+}
+header {
+  min-height: 20vh;
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid red; */
+}
+h1 {
+  font-size: 3.2em;
+  text-align: center;
+  padding-block: .2em;
+}
+header h1 span {
+  color: #0007;
+  font-size: .7em;
+  font-weight: lighter;
+}
+header .buttons {
+  display: flex;
+  gap: .2em;
+}
+header #githubIcon {
+  width: 2em;
+}
+button, a {
+  background-color: #44b;
+  color: #fffb;
+  font-size: 1.3em;
+  font-family: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: .3em;
+  outline: 0 solid #44b9;
+  padding: .3em .5em;
+  transition: all 100ms ease;
+  cursor: pointer;
+}
+button:hover, a:hover {
+  background-color: #44b9;
+  color: #ffffffee;
+}
+button:focus, a:focus {
+  outline-width: 2px;
+  outline-offset: 1.5px;
+}
+main {
+  padding-block: 3em 9em;
+  counter-reset: section;
+}
+main > * > h2 {
+  font-size: 2.4em;
+  padding-bottom: .4em;
+}
+blockquote {
+  margin: 0;
+  padding-bottom: 2em;
+}
+blockquote:last-of-type {
+  padding-bottom: 3em;
+}
+blockquote h2 {
+  counter-increment: section;
+  padding-bottom: .2em;
+}
+blockquote h2::before {
+  content: counter(section) '. ';
+}
+pre {
+  overflow: hidden;
+  border-radius: .4em;
+  margin-block: 1em;
+}
+code {
+  background-color: #44b3;
+  display: block;
+  padding-inline-start: .7em;
+  padding-block: .7em;
+  overflow: hidden;
+  user-select: all;
+}
+p code {
+  display: inline;
+  padding: .3em;
+  border-radius: .4em;
+}
+aside .options {
+  background-color: #44b3;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  border-radius: .9em;
+  padding: 1em .7em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+}
+@media (min-width: 600px) {
+  .container {
+    max-width: 80%;
+  }
+}
+@media (min-width: 900px) {
+  .container {
+    max-width: 70%;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1000px;
+  }
+}
