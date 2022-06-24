@@ -70,6 +70,4 @@ window.LoudIt = function LoudIt(
 	}, duration + 10);
 };
 
-2 + 2; // jsdelivr testing
-
 export default LoudIt;
