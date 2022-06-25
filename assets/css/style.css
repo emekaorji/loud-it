@@ -5,12 +5,11 @@
   transition: all 300ms ease;
   scroll-behavior: smooth;
 }
-*::selection {
+*:not(.loud-box, .loud-box *)::selection {
   background-color: #44b9;
 }
 body {
   font-family: 'Poppins', sans-serif;
-  /* letter-spacing: -.4px; */
 }
 #announcement {
   height: 6vh;
@@ -35,7 +34,8 @@ h1 {
   padding-block-start: min(.7em, 12vw);
   padding-block-end: .2em;
 }
-header h1 span {
+h1 span,
+h2 span {
   color: #0007;
   font-size: .6em;
   font-weight: lighter;
@@ -48,11 +48,12 @@ header .buttons {
 header #githubIcon {
   width: 2em;
 }
-button, a {
+button, .button {
   background-color: #44b;
   color: #fffb;
   font-size: 1.3em;
   font-family: inherit;
+  text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,34 +64,51 @@ button, a {
   transition: all 100ms ease;
   cursor: pointer;
 }
-button:hover, a:hover {
+button:hover, .button:hover {
   background-color: #44b9;
   color: #ffffffee;
 }
-button:focus, a:focus {
+button:focus, .button:focus {
   outline-width: 2px;
   outline-offset: 1.5px;
 }
+a {
+  color: #44b;
+  font-family: inherit;
+}
 main {
-  padding-block: 3em 9em;
-  counter-reset: section;
+  padding-block: 3.5em 2em;
 }
 main > * > h2 {
   font-size: 2.4em;
   padding-bottom: .4em;
 }
+main > * > h3 {
+  font-size: 1.7em;
+  padding-bottom: .4em;
+}
+section {
+  padding-bottom: 4.3em;
+}
+section.initialization,
+section.upcoming-features {
+  counter-reset: section;
+}
 blockquote {
   margin: 0;
+}
+blockquote:not(blockquote:last-of-type) {
   padding-bottom: 2em;
 }
-blockquote:last-of-type {
-  padding-bottom: 3em;
-}
 blockquote h2 {
-  counter-increment: section;
   padding-bottom: .2em;
 }
-blockquote h2::before {
+.initialization blockquote h2,
+.upcoming-features blockquote h2 {
+  counter-increment: section;
+}
+.initialization blockquote h2::before,
+.upcoming-features blockquote h2::before {
   content: counter(section) '. ';
 }
 pre {
@@ -120,17 +138,141 @@ code .comment {
 *:not(pre) > code {
   width: fit-content;
   background-color: #44b3;
-  display: inline;
+  color: initial;
+  white-space: nowrap;
+  vertical-align: middle;
+  display: inline-block;
+  margin-top: -.3em;
   padding: .3em;
   border-radius: .4em;
 }
+kbd {
+  background-color: #0006;
+  color: #eef;
+  font-weight: 900;
+  border-radius: .3em;
+  padding: .25em .4em;
+}
+
+
+
+
+
+
+.table-container {
+  background-color: #44b1;
+  border: 2px solid #44b;
+  border-radius: .6em;
+  overflow-x: scroll;
+}
+table {
+  width: 100%;
+  min-width: 400px;
+  border-collapse: collapse;
+  color: #0009;
+  font-weight: 600;
+}
+tr {
+  outline: none;
+}
+tr:nth-of-type(even) {
+  background-color: #44b3;
+}
+tr:focus-visible {
+  box-shadow: 0 0 4px 4px #44b5;
+}
+th, td {
+  width: 33.33%;
+  text-align: center;
+  padding: .5em;
+}
+td {
+  overflow: hidden;
+}
+td p {
+  height: 0px;
+  font-size: .85em;
+  color: #0006;
+  overflow: hidden;
+}
+th {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+thead tr {
+  background-color: #44b;
+  color: #fffb;
+}
+tbody tr.demarcation {
+  border-block: 2px solid #44b;
+}
+tbody tr td + td {
+  border-left: 2px solid #44b;
+}
+
+
+
+
 aside .options {
   background-color: #44b3;
   display: flex;
   gap: 1em;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   border-radius: .9em;
+  margin-top: .5em;
   padding: 1em .7em;
+}
+aside textarea {
+  width: 100%;
+  background-color: #fff4;
+  font-size: 1em;
+  caret-color: #44b;
+  border: none;
+  border-radius: .7em;
+  outline: none;
+  padding: .8em;
+  transition: all 400ms ease;
+  resize: none;
+}
+aside textarea:focus {
+  background-color: #fffc;
+}
+@media (min-width: 700px) {
+  aside textarea {
+    font-size: 1.3em;
+  }
+}
+@media (hover: hover) {
+  .table-container::-webkit-scrollbar,
+  textarea::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+a.button.twitter {
+  width: fit-content;
+  margin-block-start: 4em;
+  margin-inline: auto;
+}
+a.button.twitter svg {
+  width: 1em;
+  height: 100%;
+}
+
+
+
+
+footer {
+  height: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer p {
+  text-align: center;
 }
 
 
@@ -145,13 +287,8 @@ aside .options {
 
 
 .container {
-  max-width: 90%;
+  max-width: 80%;
   margin: 0 auto;
-}
-@media (min-width: 600px) {
-  .container {
-    max-width: 80%;
-  }
 }
 @media (min-width: 900px) {
   .container {
