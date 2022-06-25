@@ -73,7 +73,6 @@ window.LoudIt = function LoudIt(
 	const existingLoudBoxArray = document.querySelectorAll('div.loud-box');
 	const existingLoudBoxIndex = existingLoudBoxArray.length - 1;
 	const existingLoudBox = existingLoudBoxArray[existingLoudBoxIndex];
-	console.log(existingLoudBox);
 	if (existingLoudBox) {
 		existingLoudBox.insertAdjacentElement('afterend', loudBox);
 	} else {
