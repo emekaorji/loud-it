@@ -126,6 +126,7 @@ code {
   overflow: hidden;
   user-select: all;
   overflow-x: scroll;
+  overflow-x: scroll;
 }
 code::-webkit-scrollbar {
   display: none;
@@ -137,6 +138,7 @@ code .comment {
 }
 *:not(pre) > code {
   width: fit-content;
+  max-width: 100%;
   background-color: #44b3;
   color: initial;
   white-space: nowrap;
