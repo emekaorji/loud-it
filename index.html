@@ -13,12 +13,12 @@
   <script src="./assets/js/loud-it.js" type="module"></script>
 </head>
 <body>
-  <div id="announcement">🚀Recently released!</div>
+  <div id="announcement">🚀Recently released! • 25/22</div>
   <header>
     <h1>Loud-it<span>(Vanilla JS)</span></h1>
     <div class="buttons">
       <button id='scrollToPlayground'>Scroll to playground</button>
-      <a href='https://github.com/EmekaOrji/loud-it' target='_blank' id='githubIcon' tabindex='0'>
+      <a class='button' href='https://github.com/EmekaOrji/loud-it' target='_blank' id='githubIcon' tabindex='0'>
         <svg width='100%' height='100%' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
           <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" fill='#fffb' />
         </svg>
@@ -28,7 +28,7 @@
 
   <main class='container'>
 
-    <section class="usage">
+    <section class="initialization">
       <h2>Initialization</h2>
       
       <blockquote class='case case1'>
@@ -67,58 +67,398 @@
           <p>Now, you can go on working on your project</p>
         </div>
       </blockquote>
+      
     </section>
 
-    <section class="options">
-      <h2>Options</h2>
+    <section class="properties">
+      <h2>Properties<span>(Click row to expand)</span></h2>
       
-      <blockquote class='case case1'>
-        <h2>Script Tag</h2>
-        <div class="case__description">
-          <p>The simplest way around this is simply adding a script tag in your html <code>&lt;head&gt;</code> tag</p>
-          <p>Like this:</p>
-          <pre><code>&lt;script src="https://cdn.jsdelivr.net/gh/EmekaOrji/loud-it@master/assets/js/loud-it.js"&gt;&lt;/script&gt;</code></pre>
-          <p>Or if you have downloaded it locally</p>
-          <pre><code>&lt;script src=""&gt;&lt;/script&gt;</code></pre>
+      <blockquote>
+        <h2>Important</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Type</th>
+                <th>Default Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr tabindex='0'>
+                <td>
+                  message
+                  <p>Specifies the message to be alerted.</p>
+                </td>
+                <td>
+                  String
+                  <p>{typeof message} returns 'string', also allows HTML wrapped in a string e.g <code>"&lt;div id='bitBum'&gt;"</code>.</p>
+                </td>
+                <td>
+                  'Barry Allen later Died'
+                  <p><span style='color: initial;'>😐</span>You get this value if no message is specified.</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </blockquote>
       
-      <blockquote class='case case2'>
-        <h2>Import Declaration</h2>
-        <div class="case__description">
-          <p>Use an import in your js file</p>
-          <p>Like this:</p>
-          <pre><code>import Ding from ""</code></pre>
-          <p>Or if you have downloaded it locally</p>
-          <pre><code>import Ding from ""</code></pre>
+      <blockquote>
+        <h2>Optional</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Type</th>
+                <th>Default Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr tabindex='0'>
+                <td>
+                  element
+                  <p>The parent element of the notification.</p>
+                </td>
+                <td>
+                  String
+                  <p>Conventional querySelector params, e.g <code>'#container .content'</code>.</p>
+                </td>
+                <td>
+                  'body'
+                  <p>Default parent is the <code>&lt;body&gt;</code>.</p>
+                </td>
+              </tr>
+              <tr tabindex='0'>
+                <td>
+                  duration
+                  <p>The amount of time the notification lasts on screen.</p>
+                </td>
+                <td>
+                  Number
+                  <p>{typeof duration} returns 'number'.</p>
+                </td>
+                <td>
+                  3000<em>(ms)</em>
+                  <p>Time in milliseconds. The higher the value the longer it the notification.</p>
+                </td>
+              </tr>
+              <tr tabindex='0'>
+                <td>
+                  speed
+                  <p>This is the speed of the entrance or exit of the notification.</p>
+                </td>
+                <td>
+                  Number
+                  <p>{typeof speed} returns 'number'.</p>
+                </td>
+                <td>
+                  500<em>(ms)</em>
+                  <p>Time in milliseconds. The lower the value the faster the speed.</p>
+                </td>
+              </tr>
+              <tr tabindex='0'>
+                <td>
+                  delay
+                  <p>Specifies how long before the notification pops in.</p>
+                </td>
+                <td>
+                  Number
+                  <p>{typeof delay} returns 'number'.</p>
+                </td>
+                <td>
+                  0<em>(ms)</em>
+                  <p>Time in milliseconds. The higher the value the longer the delay.</p>
+                </td>
+              </tr>
+              <tr tabindex='0'>
+                <td>
+                  position
+                  <p>Specifies the landing position of the notification on the horizontal-axis.</p>
+                </td>
+                <td>
+                  String
+                  <p>{typeof position} returns 'string'.</p>
+                </td>
+                <td>
+                  'right'
+                  <p>Other values are <code>'left'</code> and <code>'center'</code>.</p>
+                </td>
+              </tr>
+              <tr tabindex='0'>
+                <td>
+                  mouseEffects
+                  <p>Specifies whether the notification element should be clickable, selectable, and focusable, using the <code>user-select</code> and <code>pointer-events</code> property.</p>
+                </td>
+                <td>
+                  Boolean
+                  <p>{typeof mouseEffects} returns 'boolean'.</p>
+                </td>
+                <td>
+                  false
+                  <p><code>true</code> means clickable, <code>false</code> means not clickable.</p>
+                </td>
+              </tr>
+              <tr class='demarcation'>
+                <td colspan='3'>Use CSS Properties</td>
+              </tr>
+              <tr tabindex='0'>
+                <td>
+                  width
+                  <p>Specifies the width of the notification.</p>
+                </td>
+                <td>
+                  String
+                  <p>{typeof width} returns 'string'.</p>
+                </td>
+                <td>
+                  'min(500px, 80vw)'
+                  <p>All valid CSS width value. Note that you don't need to set this, because the notification was built to resize smartly based on content.</p>
+                </td>
+              </tr>
+              <tr tabindex='0'>
+                <td>
+                  height
+                  <p>Specifies the height of the notification.</p>
+                </td>
+                <td>
+                  String
+                  <p>{typeof height} returns 'string'.</p>
+                </td>
+                <td>
+                  'auto'
+                  <p>All valid CSS height value. Note that you don't need to set this, because the notification was built to resize smartly based on content.</p>
+                </td>
+              </tr>
+              <tr tabindex='0'>
+                <td>
+                  backgroundColor
+                  <p>Sets <code>background-color</code> CSS property of the notification element.</p>
+                </td>
+                <td>
+                  String
+                  <p>{typeof backgroundColor} returns 'string'.</p>
+                </td>
+                <td>
+                  '#003663'
+                  <p><code>rgb()</code>, <code>hex</code>, <code>hsl</code>, and other CSS based colors are valid. Other values are <code>'success'</code>, <code>'error'</code>, <code>'warning'</code> and <code>'info'</code>.</p>
+                </td>
+              </tr>
+              <tr tabindex='0'>
+                <td>
+                  opacity
+                  <p>Sets the <code>opacity</code> CSS property.</p>
+                </td>
+                <td>
+                  Number/String
+                  <p>{typeof opacity} return value could be 'number' or 'string'.</p>
+                </td>
+                <td>
+                  0.6
+                  <p>Value could be in percentage, but wrapped with a string like this <code>'87%'</code>.</p>
+                </td>
+              </tr>
+              <tr tabindex='0'>
+                <td>
+                  color
+                  <p>Color of the text as in native CSS.</p>
+                </td>
+                <td>
+                  String
+                  <p>{typeof color} returns 'string'.</p>
+                </td>
+                <td>
+                  '#FFFFFF'
+                  <p>All valid CSS color values as in 'backgroundColor' above.</p>
+                </td>
+              </tr>
+              <tr tabindex='0'>
+                <td>
+                  fontSize
+                  <p>Sets the size of the text.</p>
+                </td>
+                <td>
+                  String
+                  <p>{typeof fontSize} returns 'string'.</p>
+                </td>
+                <td>
+                  'min(1.5em, 6vw)'
+                  <p>Valid values are the usual CSS <code>font-size</code> values in valid measurements: <code>px</code>, <code>em</code>, <code>ch</code>, <code>%</code>, and CSS functions <code>calc()</code>.</p>
+                </td>
+              </tr>
+              <tr tabindex='0'>
+                <td>
+                  fontWeight
+                  <p>Sets the boldness or lightness of the text.</p>
+                </td>
+                <td>
+                  Number/String
+                  <p>{typeof fontWeight} return value could be 'number' or 'string'.</p>
+                </td>
+                <td>
+                  700
+                  <p>Valid values are <code>100</code>, <code>200</code>, <code>300</code>,..., <code>900</code> or <code>'light'</code>, <code>'bolder'</code>.</p>
+                </td>
+              </tr>
+              <tr tabindex='0'>
+                <td>
+                  top
+                  <p>Specifies how far from the top the notification drops.</p>
+                </td>
+                <td>
+                  String
+                  <p>{typeof top} returns 'string'.</p>
+                </td>
+                <td>
+                  '8vh'
+                  <p>Valid values are CSS measurement values. e.g <code>10px</code>, <code>20%</code>, <code>43em</code>.</p>
+                </td>
+              </tr>
+              <tr tabindex='0'>
+                <td>
+                  left
+                  <p>Specifies how far from the left the notification flushes.</p>
+                </td>
+                <td>
+                  String
+                  <p>{typeof left} returns 'string'.</p>
+                </td>
+                <td>
+                  'auto'
+                  <p>'auto' by default, so it has no effect until specified otherwise. Other valid values are the same as in 'top' above.</p>
+                </td>
+              </tr>
+              <tr tabindex='0'>
+                <td>
+                  right
+                  <p>Specifies how far from the right the notification flushes.</p>
+                </td>
+                <td>
+                  String
+                  <p>{typeof right} returns 'string'.</p>
+                </td>
+                <td>
+                  '1em'
+                  <p>By default the notification appears '1em' away from the right. Other valid values are the same as in 'top' above.</p>
+                </td>
+              </tr>
+              <tr tabindex='0'>
+                <td>
+                  borderRadius
+                  <p>Sets the roundness of the corners of the notification.</p>
+                </td>
+                <td>
+                  String
+                  <p>{typeof borderRadius} returns 'string'.</p>
+                </td>
+                <td>
+                  '0.6em'
+                  <p>Valid values same as in 'fontSize'.</p>
+                </td>
+              </tr>
+              <tr tabindex='0'>
+                <td>
+                  padding
+                  <p>Sets the padding CSS property of the notification.</p>
+                </td>
+                <td>
+                  String
+                  <p>{typeof padding} returns 'string'.</p>
+                </td>
+                <td>
+                  '1em'
+                  <p>Valid values same as in 'fontSize'.</p>
+                </td>
+              </tr>
+              <tr tabindex='0'>
+                <td>
+                  zIndex
+                  <p>Defines the position of the notification along the Z-axis.</p>
+                </td>
+                <td>
+                  Number
+                  <p>{typeof zIndex} returns 'number'.</p>
+                </td>
+                <td>
+                  2147483647
+                  <p>This is largest zIndex value, so by default the notification appears ontop of every other element in its container element. Of course you can change this.</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </blockquote>
 
-      <blockquote class='case case3'>
-        <h2>Clone the repo</h2>
-        <div class="case__description">
-          <p>Clone this repo from github and start building your project inside it</p>
-          <pre><code>git clone https://github.com/EmekaOrji/loud-it.git</code></pre>
-          <p>then</p>
-          <pre><code>cd Ding</code></pre>
-          <p>Now, you can go on working on your project</p>
-        </div>
+      <blockquote>
+        <h2>Order of Specificity</h2>
+        <p>The <code>position</code>, <code>right</code>, and <code>left</code> property in that order are in increasing order of importance. So the <strong>left > right > position</strong>. '<strong>></strong>' = 'is more important'<br>For example,</p>
+        <pre><code>LoudIt('Pretty Dumplin', {
+  right: '10%',
+  position: 'center',
+});</code></pre>
+        <p>With the code above, the notification would be displayed 10% to the right of its container and not at the center because right has more importance than position.</p>
       </blockquote>
+      
+      <blockquote>
+        <h2>Predefined Class</h2>
+        <p>For further styling, you could make use of the predefined class <code>.loud-box</code> to target the notification element.</p>
+      </blockquote>
+
+    </section>
+
+    <section class="usage">
+      <h2>How it works</h2>
+
+      <blockquote>
+        <h2 class='syntax'>Syntax: <code>LoudIt(message, { options })</code></h2>
+        
+        <p>The function <code>LoudIt()</code> creates a <code>&lt;div&gt;</code> element called the <strong>LoudBox</strong>, sets the innerHTML to the message property, applies the necessary styling as predefined or as set in caller, then appends it to the DOM inside the predefined parent <code>&lt;body&gt;</code> or specified <code>element</code> value (when it was called).</p>
+        <br>
+        <p>The LoudBox is positioned with the <code>position: fixed;</code> or <code>position: absolute;</code> depending on the element property value. This is done by setting the position of the parent element to be <code>position: relative;</code> while it is view, but no worries, it is smart enough to return it to its previous state once the notification is complete.</p>
+      </blockquote>
+
+    </section>
+
+    <section class="upcoming-features">
+      <h2>Upcoming Features</h2>
+      
+      <blockquote>
+        <h2><code>slideFrom:</code></h2>
+        <p>Should specify the entry direction of the notification.</p>
+        <p>Values: <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code>.</p>
+      </blockquote>
+
+      <blockquote>
+        <h2><code>slideTo:</code></h2>
+        <p>Should specify the exit direction of the notification.</p>
+        <p>Values: <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code>.</p>
+      </blockquote>
+
     </section>
 
     <aside>
-      <h2>Playground</h2>
+      <h2>Code Playground</h2>
+      <p>Insert any of the properties below and hit the button or press <kbd>CTRL + S</kbd></p>
       <div class="options">
-        <button>Ding it!</button>
+<textarea id="jsPlayground" cols="30" rows="10" spellcheck="false">LoudIt('<em>Squicky Bitbum</em>', {
+  speed: 300,
+  backgroundColor: '#44B',
+  opacity: .8,
+  color: '#fffb'
+});</textarea>
+        <button>Loud it!</button>
       </div>
     </aside>
 
+    <a href="https://twitter.com/intent/tweet?text=https%3A%2F%2Floud-it.netlify.app%0ALoud-it%21%20another%20amazing%20notification%20handler%20you%20could%20use%20in%20your%20project%F0%9F%8E%89" target='_blank' class='button twitter'>Loud-it on Twitter&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" fill='#fffb' /></svg></a>
   </main>
 
   <footer>
-
+    <p class='container'>Made with love💖, vscode and a browser by <a class='link' href="https://twitter.com/code_rabbi">Emeka Orji</a></p>
   </footer>
 
   <script src="./assets/js/app.js" type='module'></script>
+  <script src="./assets/js/playground.js" type='module'></script>
 </body>
 </html>

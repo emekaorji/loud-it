@@ -1,73 +1,100 @@
 window.LoudIt = function LoudIt(
-	message,
+	message = '😐Barry Allen later Died',
 	{
 		element = 'body',
 		duration = 3000,
 		speed = 500,
+		delay = 0,
+		position = 'right',
 		mouseEffects = false,
 
+		width = 'min(500px, 80vw)',
+		height = 'auto',
 		backgroundColor = '#003663',
-		opacity = 0.5,
-		color = '#ffffff',
+		opacity = 0.6,
+		color = '#FFFFFF',
 		fontSize = 'min(1.5em, 6vw)',
 		fontWeight = 700,
-		top = '11vh',
+		top = '8vh',
 		left = 'auto',
-		right = '1em',
-		borderRadius = '0.7em',
-		zIndex = 999999999999,
+		right = 'auto',
+		borderRadius = '0.6em',
+		padding = '1em',
+		zIndex = 2147483647,
 	} = {}
 ) {
-	const alertMessage = document.createElement('div');
+	const loudBox = document.createElement('div');
+	const newRight = position === 'right' && right === 'auto' ? '1em' : right;
 
-	alertMessage.classList.add('alert__message');
-	alertMessage.setAttribute('aria-hidden', 'true');
-	alertMessage.innerHTML = message;
-	alertMessage.style.width = 'min(500px, 80vw)';
-	alertMessage.style.backgroundColor =
+	loudBox.classList.add('loud-box');
+	loudBox.setAttribute('aria-hidden', 'true');
+	loudBox.innerHTML = message;
+	loudBox.style.width = width;
+	loudBox.style.height = height;
+	loudBox.style.backgroundColor =
 		backgroundColor === 'success'
-			? '#0d8a0d'
+			? '#0D8A0D'
 			: backgroundColor === 'error'
-			? '#fb1717'
+			? '#FB1717'
 			: backgroundColor === 'warning'
-			? '#bebe19'
+			? '#BEBE19'
 			: backgroundColor === 'info'
 			? '#003663'
 			: backgroundColor;
-	alertMessage.style.opacity = opacity;
-	alertMessage.style.color = color;
-	alertMessage.style.fontSize = fontSize;
-	alertMessage.style.fontWeight = fontWeight;
-	alertMessage.style.position = element === 'body' ? 'fixed' : 'absolute';
-	alertMessage.style.top = `-${top}`;
-	alertMessage.style.left = left;
-	alertMessage.style.right = right;
-	alertMessage.style.padding = '1em';
-	alertMessage.style.borderRadius = borderRadius;
-	alertMessage.style.transition = `all ${speed}ms cubic-bezier(0,1,.39,1.33)`;
-	alertMessage.style.zIndex = zIndex;
-	alertMessage.style.userSelect = !mouseEffects && 'none';
-	alertMessage.style.pointerEvents = !mouseEffects && 'none';
+	loudBox.style.opacity = 0;
+	loudBox.style.color = color;
+	loudBox.style.fontSize = fontSize;
+	loudBox.style.fontWeight = fontWeight;
+	loudBox.style.position = element === 'body' ? 'fixed' : 'absolute';
+	loudBox.style.top = `-${top}`;
+	loudBox.style.left =
+		position === 'left' && left === 'auto' && right === 'auto'
+			? '1em'
+			: position === 'center' && left === 'auto' && right === 'auto'
+			? '50%'
+			: left;
+	loudBox.style.right =
+		position === 'right' && right === 'auto' ? newRight : right;
+	loudBox.style.transform =
+		position === 'center' &&
+		left === 'auto' &&
+		right === 'auto' &&
+		`translateX(-50%)`;
+	loudBox.style.padding = padding;
+	loudBox.style.borderRadius = borderRadius;
+	loudBox.style.transition = `all ${speed}ms cubic-bezier(0,1,.39,1.33)`;
+	loudBox.style.zIndex = zIndex;
+	loudBox.style.userSelect = !mouseEffects && 'none';
+	loudBox.style.pointerEvents = !mouseEffects && 'none';
 
 	const container = document.querySelector(element);
 	const previousPositionValue = container.style.getPropertyValue('position');
 	container.style.position = 'relative';
-	container.prepend(alertMessage);
+	const existingLoudBoxArray = document.querySelectorAll('div.loud-box');
+	const existingLoudBoxIndex = existingLoudBoxArray.length - 1;
+	const existingLoudBox = existingLoudBoxArray[existingLoudBoxIndex];
+	console.log(existingLoudBox);
+	if (existingLoudBox) {
+		existingLoudBox.insertAdjacentElement('afterend', loudBox);
+	} else {
+		container.prepend(loudBox);
+	}
 
 	setTimeout(() => {
-		alertMessage.style.top = top;
-	}, 10);
+		loudBox.style.opacity = opacity;
+		loudBox.style.top = top;
+	}, 10 + delay);
 
 	setTimeout(() => {
-		alertMessage.style.top = `-${top}`;
-		alertMessage.style.opacity = 0;
+		loudBox.style.top = `-${top}`;
+		loudBox.style.opacity = 0;
 		setTimeout(() => {
-			alertMessage.parentNode.removeChild(alertMessage);
+			loudBox.parentNode.removeChild(loudBox);
 			previousPositionValue
 				? container.style.setProperty('position', previousPositionValue)
 				: container.style.removeProperty('position');
 		}, 500);
-	}, duration + 10);
+	}, duration + 10 + delay);
 };
 
 export default LoudIt;
