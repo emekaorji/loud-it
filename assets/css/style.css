@@ -384,13 +384,10 @@ footer p {
   position: absolute;
   right: 0;
   bottom: 0;
-  transition: all 2s ease;
+  transition: all 2s ease, outline 500ms ease;
   border-radius: 50%;
   padding: .4em;
   pointer-events: all;
-}
-#colorModeButton:hover {
-  opacity: 1;
 }
 
 
