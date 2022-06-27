@@ -1,4 +1,4 @@
-window.LoudIt = function LoudIt(
+window.LoudIt = function (
 	message = '😐Barry Allen later Died',
 	{
 		element = 'body',
@@ -10,7 +10,7 @@ window.LoudIt = function LoudIt(
 
 		width = 'min(500px, 80vw)',
 		height = 'auto',
-		backgroundColor = '#003663',
+		background = '#003663',
 		opacity = 0.6,
 		color = '#FFFFFF',
 		fontSize = 'min(1.5em, 6vw)',
@@ -31,16 +31,16 @@ window.LoudIt = function LoudIt(
 	loudBox.innerHTML = message;
 	loudBox.style.width = width;
 	loudBox.style.height = height;
-	loudBox.style.backgroundColor =
-		backgroundColor === 'success'
+	loudBox.style.background =
+		background === 'success'
 			? '#0D8A0D'
-			: backgroundColor === 'error'
+			: background === 'error'
 			? '#FB1717'
-			: backgroundColor === 'warning'
+			: background === 'warning'
 			? '#BEBE19'
-			: backgroundColor === 'info'
+			: background === 'info'
 			? '#003663'
-			: backgroundColor;
+			: background;
 	loudBox.style.opacity = 0;
 	loudBox.style.color = color;
 	loudBox.style.fontSize = fontSize;
@@ -70,6 +70,7 @@ window.LoudIt = function LoudIt(
 	const container = document.querySelector(element);
 	const previousPositionValue = container.style.getPropertyValue('position');
 	container.style.position = 'relative';
+
 	const existingLoudBoxArray = document.querySelectorAll('div.loud-box');
 	const existingLoudBoxIndex = existingLoudBoxArray.length - 1;
 	const existingLoudBox = existingLoudBoxArray[existingLoudBoxIndex];
@@ -95,5 +96,3 @@ window.LoudIt = function LoudIt(
 		}, 500);
 	}, duration + 10 + delay);
 };
-
-export default LoudIt;

@@ -6,10 +6,41 @@
   scroll-behavior: smooth;
 }
 *:not(.loud-box, .loud-box *)::selection {
-  background-color: #44b9;
+  background-color: #8e8ed6;
+}
+.light-mode{
+  --main-color: #fff;
+  --font-color: #000;
+  --sub-font-color: #0007;
+  --code-color: #d9d9f1;
+  --caret-color: #44b;
+  --secondary-sub-font-color: #0009;
+  --tertiary-font-color: #0006;
+  --text-area-bg: #fff6;
+  --text-area-bg-hover: #fff9;
+  --text-area-bg-focus: #fffc;
+  --text-area-color: #0009;
+  --cite-color: #050;
+}
+.dark-mode{
+  --main-color: #223;
+  --font-color: #fffe;
+  --sub-font-color: #fff7;
+  --code-color: #28284e;
+  --caret-color: #fffb;
+  --secondary-sub-font-color: #fff9;
+  --tertiary-font-color: #fff6;
+  --text-area-bg: #fff1;
+  --text-area-bg-hover: #fff2;
+  --text-area-bg-focus: #fff3;
+  --text-area-color: #fff9;
+  --cite-color: #096;
 }
 body {
+  background-color: var(--main-color);
+  color: var(--font-color);
   font-family: 'Poppins', sans-serif;
+  position: relative;
 }
 #announcement {
   height: 6vh;
@@ -26,7 +57,6 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border: 2px solid red; */
 }
 h1 {
   font-size: min(3.2em, 11vw);
@@ -36,16 +66,17 @@ h1 {
 }
 h1 span,
 h2 span {
-  color: #0007;
+  color: var(--sub-font-color);
   font-size: .6em;
   font-weight: lighter;
   vertical-align: middle;
 }
-header .buttons {
+.buttons {
   display: flex;
   gap: .3em;
+  justify-content: center;
 }
-header #githubIcon {
+#githubIcon {
   width: 2em;
 }
 button, .button {
@@ -71,6 +102,10 @@ button:hover, .button:hover {
 button:focus, .button:focus {
   outline-width: 2px;
   outline-offset: 1.5px;
+}
+button svg, a svg {
+  width: 100%;
+  height: 100%;
 }
 a {
   color: #44b;
@@ -113,16 +148,33 @@ blockquote h2 {
 }
 pre {
   background-color: #44b3;
-  overflow: hidden;
+  position: relative;
   border: 1px solid #44b0;
   border-radius: .4em;
   padding-inline-start: .7em;
   margin-block: 1em;
+  overflow: hidden;
+  isolation: isolate;
+}
+pre::after {
+  content: '';
+  width: 20%;
+  height: 100%;
+  background-image: linear-gradient(to right, transparent 20%, var(--code-color) 70%);
+  position: absolute;
+  top: 0;
+  right: 0;
+  pointer-events: none;
+}
+pre > div {
+  z-index: 1;
 }
 code {
-  width: calc(100% - 30px);
+  width: 100%;
   display: block;
   padding-block: .7em;
+  padding-inline-end: 10%;
+  position: relative;
   overflow: hidden;
   user-select: all;
   overflow-x: scroll;
@@ -140,7 +192,6 @@ code .comment {
   width: fit-content;
   max-width: 100%;
   background-color: #44b3;
-  color: initial;
   white-space: nowrap;
   vertical-align: middle;
   display: inline-block;
@@ -148,10 +199,18 @@ code .comment {
   padding: .3em;
   border-radius: .4em;
 }
+*:is(h2) > code {
+  max-width: fit-content;
+  font-size: min(1em, 5vw);
+}
+cite {
+  color: var(--cite-color);
+}
 kbd {
-  background-color: #0006;
+  background-color: var(--tertiary-font-color);
   color: #eef;
   font-weight: 900;
+  white-space: nowrap;
   border-radius: .3em;
   padding: .25em .4em;
 }
@@ -171,7 +230,7 @@ table {
   width: 100%;
   min-width: 400px;
   border-collapse: collapse;
-  color: #0009;
+  color: var(--secondary-sub-font-color);
   font-weight: 600;
 }
 tr {
@@ -194,7 +253,7 @@ td {
 td p {
   height: 0px;
   font-size: .85em;
-  color: #0006;
+  color: var(--tertiary-font-color);
   overflow: hidden;
 }
 th {
@@ -215,7 +274,7 @@ tbody tr td + td {
 
 
 
-aside .options {
+aside .playground {
   background-color: #44b3;
   display: flex;
   gap: 1em;
@@ -226,24 +285,53 @@ aside .options {
   margin-top: .5em;
   padding: 1em .7em;
 }
+aside .textarea-container {
+  width: 100%;
+  position: relative;
+}
 aside textarea {
   width: 100%;
-  background-color: #fff4;
+  background-color: var(--text-area-bg);
+  color: var(--text-area-color);
   font-size: 1em;
-  caret-color: #44b;
+  white-space: nowrap;
+  caret-color: var(--caret-color);
   border: none;
   border-radius: .7em;
   outline: none;
   padding: .8em;
+  padding-bottom: 3em;
   transition: all 400ms ease;
   resize: none;
 }
 aside textarea:focus {
-  background-color: #fffc;
+  background-color: var(--text-area-bg-focus);
+  color: var(--font-color);
+}
+aside textarea:hover {
+  background-color: var(--text-area-bg-hover);
+}
+#externalPlayground {
+  width: 1.8em;
+  height: 1.8em;
+  background-color: #44b5;
+  position: absolute;
+  bottom: .7em;
+  right: .4em;
+  padding: .35em;
+}
+#externalPlayground:hover,
+#externalPlayground:focus {
+  background-color: #44b;
 }
 @media (min-width: 700px) {
   aside textarea {
     font-size: 1.3em;
+  }
+  #externalPlayground {
+    position: absolute;
+    top: .4em;
+    right: .4em;
   }
 }
 @media (hover: hover) {
@@ -270,11 +358,55 @@ a.button.twitter svg {
 footer {
   height: 25vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 footer p {
   text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.color-mode {
+  width: 100%;
+  position: fixed;
+  bottom: 10%;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+#colorModeButton {
+  width: 2em;
+  height: 2em;
+  background-color: #44b;
+  opacity: 0.1;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transition: all 2s ease;
+  border-radius: 50%;
+  padding: .4em;
+  pointer-events: all;
 }
 
 
@@ -299,6 +431,6 @@ footer p {
 }
 @media (min-width: 1200px) {
   .container {
-    max-width: 1000px;
+    max-width: 900px;
   }
 }
