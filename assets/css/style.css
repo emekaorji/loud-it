@@ -184,7 +184,7 @@ code::-webkit-scrollbar {
   display: none;
 }
 code .comment {
-  color: #0007;
+  color: var(--sub-font-color);
   font-weight: 300;
   font-style: italic;
 }
