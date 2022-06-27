@@ -20,6 +20,7 @@
   --text-area-bg-hover: #fff9;
   --text-area-bg-focus: #fffc;
   --text-area-color: #0009;
+  --cite-color: #050;
 }
 .dark-mode{
   --main-color: #223;
@@ -33,6 +34,7 @@
   --text-area-bg-hover: #fff2;
   --text-area-bg-focus: #fff3;
   --text-area-color: #fff9;
+  --cite-color: #096;
 }
 body {
   background-color: var(--main-color);
@@ -202,7 +204,7 @@ code .comment {
   font-size: min(1em, 5vw);
 }
 cite {
-  color: #050;
+  color: var(--cite-color);
 }
 kbd {
   background-color: var(--tertiary-font-color);
