@@ -368,25 +368,6 @@ footer p {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .color-mode {
   width: 100%;
   position: fixed;
@@ -408,12 +389,9 @@ footer p {
   padding: .4em;
   pointer-events: all;
 }
-
-
-
-
-
-
+#colorModeButton:hover {
+  opacity: 1;
+}
 
 
 
