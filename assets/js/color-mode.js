@@ -12,7 +12,7 @@ window.addEventListener(
 	'scroll',
 	function () {
 		clearTimeout(isScrolling);
-		colorModeButton.style.opacity = 0.6;
+		colorModeButton.style.opacity = 0.8;
 
 		isScrolling = setTimeout(function () {
 			colorModeButton.style.opacity = 0.1;
