@@ -184,7 +184,7 @@ code::-webkit-scrollbar {
   display: none;
 }
 code .comment {
-  color: #0007;
+  color: var(--sub-font-color);
   font-weight: 300;
   font-style: italic;
 }
@@ -368,25 +368,6 @@ footer p {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .color-mode {
   width: 100%;
   position: fixed;
@@ -403,17 +384,11 @@ footer p {
   position: absolute;
   right: 0;
   bottom: 0;
-  transition: all 2s ease;
+  transition: all 2s ease, outline 500ms ease;
   border-radius: 50%;
   padding: .4em;
   pointer-events: all;
 }
-
-
-
-
-
-
 
 
 

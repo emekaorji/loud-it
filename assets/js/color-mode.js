@@ -7,12 +7,18 @@ colorModeButton.addEventListener('focus', function () {
 colorModeButton.addEventListener('blur', function () {
 	colorModeButton.style.opacity = 0.1;
 });
+colorModeButton.addEventListener('mouseover', function () {
+	colorModeButton.style.opacity = 1;
+});
+colorModeButton.addEventListener('mouseout', function () {
+	colorModeButton.style.opacity = 0.1;
+});
 
 window.addEventListener(
 	'scroll',
 	function () {
 		clearTimeout(isScrolling);
-		colorModeButton.style.opacity = 0.6;
+		colorModeButton.style.opacity = 0.8;
 
 		isScrolling = setTimeout(function () {
 			colorModeButton.style.opacity = 0.1;
