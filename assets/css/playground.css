@@ -1,0 +1,86 @@
+.light-mode{
+  --hint-font-color: #000e;
+}
+.dark-mode{
+  --hint-font-color: #fffe;
+}
+main {
+  padding-block-start: .9em;
+}
+main > section > h3 {
+  padding-top: 1em;
+  padding-bottom: 0;
+}
+h3 ~ p {
+  padding: 0;
+  padding-bottom: 1em;
+}
+p {
+  padding-top: 1em;
+}
+.screen-container {
+  height: 30vh;
+}
+.screen {
+  height: 100%;
+  background-color: #44b5;
+  font-size: .7em;
+  border-radius: 2em;
+  overflow: hidden;
+}
+.desktop-info {
+  display: none;
+  padding-bottom: 1em;
+}
+@media (min-width: 700px) {
+  .screen-container {
+    height: 40vh;
+  }
+}
+@media (min-width: 1000px) {
+  .desktop-info {
+    display: block;
+  }
+  .info {
+    display: none;
+  }
+  aside {
+    display: flex;
+    gap: 1em;
+    flex-direction: row-reverse;
+  }
+  .screen-container {
+    width: 100%;
+    height: 60vh;
+  }
+  .playground-container {
+    width: 100%;
+    /* height: 100%; */
+  }
+  aside .playground {
+    height: 100%;
+    margin-top: 0;
+  }
+}
+section.hint {
+  padding-bottom: 2em;
+}
+table {
+  min-width: auto;
+}
+th {
+  color: var(--hint-font-color);
+}
+tbody tr td {
+  border-left: 1px solid #44b8 !important;
+}
+.buttons {
+  padding-top: 3em;
+}
+a.button.twitter {
+  width: fit-content;
+  margin: 0;
+}
+footer {
+  justify-content: space-evenly;
+}

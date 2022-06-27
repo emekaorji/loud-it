@@ -1,12 +1,23 @@
-// import LoudIt from './loud-it.js'; OR
-// import LoudIt from './loud-it.min.js'; OR
-// import LoudIt from 'https://cdn.jsdelivr.net/gh/EmekaOrji/loud-it@master/assets/js/loud-it.js'; OR
-// import LoudIt from 'https://cdn.jsdelivr.net/gh/EmekaOrji/loud-it@master/assets/js/loud-it.min.js';
+import LoudIt from '../library/module/loud-it.module.js';
 
-const scrollButton = document.getElementById('scrollToPlayground');
-const playground = document.querySelector('aside');
 const dingButton = document.querySelector('aside button');
 const playgroundCode = document.getElementById('jsPlayground');
+
+function hanldeRowExpansion() {
+	const rows = document.querySelectorAll('tbody tr');
+	rows.forEach((row) => {
+		row.addEventListener('focus', () => {
+			row.querySelectorAll('p').forEach((p) => {
+				p.style.height = p.scrollHeight + 'px';
+			});
+		});
+		row.addEventListener('blur', () => {
+			row.querySelectorAll('p').forEach((p) => {
+				p.style.height = '0px';
+			});
+		});
+	});
+}
 
 function formatEditor(event) {
 	if (event.key === 'Enter') {
@@ -22,7 +33,7 @@ function formatEditor(event) {
 
 function handleErrors(event) {
 	LoudIt(`${event.message} on line ${event.lineno}:${event.colno}`, {
-		backgroundColor: 'error',
+		background: 'error',
 		duration: 5000,
 	});
 }
@@ -36,7 +47,7 @@ function removeErrorHandler() {
 	window.removeEventListener('error', handleErrors);
 }
 
-scrollButton.addEventListener('click', () => playground.scrollIntoView());
+hanldeRowExpansion();
 playgroundCode.addEventListener('keydown', formatEditor);
 dingButton.addEventListener('mousedown', evaluateScript);
 dingButton.addEventListener('mouseup', removeErrorHandler);

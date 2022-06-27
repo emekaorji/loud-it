@@ -1,15 +1,10 @@
 function loudItOnLoad() {
-	LoudIt('HI!', {
-		duration: 3000,
-		backgroundColor: '#44B',
-		opacity: 0.8,
-	});
 	LoudIt(
 		'<h4>Loud-it! is another amazing notification handler</h4><p>Hope you enjoy it!</p>',
 		{
-			duration: 5000,
-			delay: 2900,
-			backgroundColor: '#44B',
+			// duration: 50000,
+			// delay: 2900,
+			background: '#44B',
 			opacity: 0.8,
 			fontWeight: 300,
 		}
@@ -32,21 +27,8 @@ function addStyle(styleString) {
 	document.head.append(style);
 }
 
-function hanldeRowExpansion() {
-	const rows = document.querySelectorAll('tbody tr');
-	rows.forEach((row) => {
-		row.addEventListener('focus', () => {
-			row.querySelectorAll('p').forEach((p) => {
-				p.style.height = p.scrollHeight + 'px';
-			});
-		});
-		row.addEventListener('blur', () => {
-			row.querySelectorAll('p').forEach((p) => {
-				p.style.height = '0px';
-			});
-		});
-	});
-}
+const playground = document.querySelector('aside');
+const scrollButton = document.getElementById('scrollToPlayground');
+scrollButton.addEventListener('click', () => playground.scrollIntoView());
 
-loudItOnLoad();
-hanldeRowExpansion();
+// loudItOnLoad();
