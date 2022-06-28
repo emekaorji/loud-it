@@ -2,8 +2,8 @@ function loudItOnLoad() {
 	LoudIt(
 		'<h4>Loud-it! is another amazing notification handler</h4><p>Hope you enjoy it!</p>',
 		{
-			// duration: 50000,
-			// delay: 2900,
+			duration: 4000,
+			delay: 1000,
 			background: '#44B',
 			opacity: 0.8,
 			fontWeight: 300,
@@ -11,7 +11,7 @@ function loudItOnLoad() {
 	);
 }
 
-// Change Grepper button image if Grepper extension is installed
+// Change Grepper button image if Grepper extension is installed - love the light-colored better
 setTimeout(() => {
 	addStyle(`
 	  pre div.open_grepper_editor {
@@ -31,4 +31,4 @@ const playground = document.querySelector('aside');
 const scrollButton = document.getElementById('scrollToPlayground');
 scrollButton.addEventListener('click', () => playground.scrollIntoView());
 
-// loudItOnLoad();
+loudItOnLoad();
