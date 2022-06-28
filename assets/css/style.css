@@ -4,11 +4,12 @@
   padding: 0;
   transition: all 300ms ease;
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 *:not(.loud-box, .loud-box *)::selection {
   background-color: #8e8ed6;
 }
-.light-mode{
+.light-mode {
   --main-color: #fff;
   --font-color: #000;
   --sub-font-color: #0007;
@@ -22,7 +23,7 @@
   --text-area-color: #0009;
   --cite-color: #050;
 }
-.dark-mode{
+.dark-mode {
   --main-color: #223;
   --font-color: #fffe;
   --sub-font-color: #fff7;
@@ -79,6 +80,13 @@ h2 span {
 #githubIcon {
   width: 2em;
 }
+*[tabindex='0']:not(table *) {
+  outline: 2px solid #44b0;
+  outline-offset: 1.5px;
+}
+*[tabindex='0']:not(table *):focus-visible {
+  outline-color: #44b9;
+}
 button, .button {
   background-color: #44b;
   color: #fffb;
@@ -90,18 +98,19 @@ button, .button {
   align-items: center;
   border: none;
   border-radius: .3em;
-  outline: 0 solid #44b9;
+  outline: 2px solid #44b0;
+  outline-offset: 1.5px;
   padding: .3em .5em;
   transition: all 100ms ease;
   cursor: pointer;
+  transition: all 300ms ease, outline-color 400ms ease;
 }
 button:hover, .button:hover {
   background-color: #44b9;
   color: #ffffffee;
 }
 button:focus, .button:focus {
-  outline-width: 2px;
-  outline-offset: 1.5px;
+  outline-color: #44b9;
 }
 button svg, a svg {
   width: 100%;
@@ -110,6 +119,12 @@ button svg, a svg {
 a {
   color: #44b;
   font-family: inherit;
+  outline: 1px solid #44b0;
+  outline-offset: 1.5px;
+  border-radius: .3em;
+}
+a:focus-visible {
+  outline-color: #44b9;
 }
 main {
   padding-block: 3.5em 2em;
@@ -161,10 +176,15 @@ pre::after {
   width: 20%;
   height: 100%;
   background-image: linear-gradient(to right, transparent 20%, var(--code-color) 70%);
+  visibility: hidden;
   position: absolute;
   top: 0;
   right: 0;
   pointer-events: none;
+}
+body.light-mode pre::after,
+body.dark-mode pre::after {
+  visibility: visible;
 }
 pre > div {
   z-index: 1;
@@ -177,7 +197,6 @@ code {
   position: relative;
   overflow: hidden;
   user-select: all;
-  overflow-x: scroll;
   overflow-x: scroll;
 }
 code::-webkit-scrollbar {
@@ -192,16 +211,18 @@ code .comment {
   width: fit-content;
   max-width: 100%;
   background-color: #44b3;
-  white-space: nowrap;
   vertical-align: middle;
-  display: inline-block;
+  display: inline;
   margin-top: -.3em;
   padding: .3em;
   border-radius: .4em;
 }
+*:is(table) code {
+  display: inline-block;
+}
 *:is(h2) > code {
-  max-width: fit-content;
-  font-size: min(1em, 5vw);
+  font-size: clamp(.9rem, 4.2vw, 1.3rem);
+  white-space: nowrap;
 }
 cite {
   color: var(--cite-color);
