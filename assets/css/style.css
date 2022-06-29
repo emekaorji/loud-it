@@ -44,7 +44,7 @@ body {
   position: relative;
 }
 #announcement {
-  height: 6vh;
+  height: max(45px, 6vh);
   background-color: #44b3;
   font-size: 1.2em;
   display: flex;
@@ -377,7 +377,7 @@ a.button.twitter svg {
 
 
 footer {
-  height: 25vh;
+  height: max(150px, 25vh);
   display: flex;
   flex-direction: column;
   justify-content: center;
