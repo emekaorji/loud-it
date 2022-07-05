@@ -1,9 +1,9 @@
 /* #16163e - Who else thinks this color is amazing? */
-.light-mode{
+.light-mode {
   --hint-font-color: #000e;
   --screen-font-color: #0002;
 }
-.dark-mode{
+.dark-mode {
   --hint-font-color: #fffe;
   --screen-font-color: #fff2;
 }

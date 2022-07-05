@@ -184,8 +184,8 @@ pre::after {
   right: 0;
   pointer-events: none;
 }
-body.light-mode pre::after,
-body.dark-mode pre::after {
+.light-mode pre::after,
+.dark-mode pre::after {
   visibility: visible;
 }
 pre > div {
