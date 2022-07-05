@@ -35,18 +35,7 @@ window.addEventListener(
 	false
 );
 
-function setColorMode(mode) {
-	localStorage.setItem('loudItColorMode', mode);
-	document.body.className = '';
-	document.body.classList.add(`${mode}-mode`);
-}
-
-currentColorMode = localStorage.getItem('loudItColorMode');
-if (currentColorMode === null) {
-	setColorMode('light');
-} else {
-	setColorMode(currentColorMode);
-}
+// function setColorMode(mode); is defined in 'color-mode.preload.js'
 
 colorModeButton.addEventListener('click', function () {
 	currentColorMode = localStorage.getItem('loudItColorMode');
